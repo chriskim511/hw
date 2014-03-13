@@ -1,0 +1,6 @@
+An algorithm that we've most likely all seen from the last term is binsearch. Using binsearch over linsearch is much 
+more efficient in many instances. Binsearch basically works like this: 
+1. Check the middle of the list and see if the object you're looking for is greater, less than, or equal to that object.
+2. If it's not, then, depending on if it is greater than or less than, you will repeat these two steps again. 
+The difference is that you will look at the lesser half of the list if the object is less than the middle object, 
+and the upper half if it is greater. 
