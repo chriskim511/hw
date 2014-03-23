@@ -3,17 +3,17 @@ public class MyLinkedList {
     private Node head;
     
     public MyLinkedList() {
-	head = null;
+	head = new Node("");
     }
 
     public void add(String d) {
 	Node temp = new Node(d);
-	temp.setNext(head);
-	head = temp;
+	temp.setNext(head.getNext());
+	head.setNext(temp);
     }
     public int length() { 
 	int len = 0;
-	Node temp = head;
+	Node temp = head.getNext();
 	while (temp != null) {
 	    len += 1;
 	    temp = temp.getNext();
@@ -21,9 +21,9 @@ public class MyLinkedList {
 	return len;
     }
     public int find(String s) {
-	Node temp = head;
-	int i = -1;
-	while (temp != null) {
+	Node temp = head.getNext();
+	int i = 0;
+	while (i < length()) {
 	    i += 1;
 	    if (temp.getData().equals(s)) {
 		return i;
@@ -33,70 +33,63 @@ public class MyLinkedList {
 	return -1;
     }
     public String get(int a) {
-	Node temp = head;
-	int i = -1;
-	while (temp != null) {
-	    i+= 1;
-	    if (i == a) {
-		return temp.getData();
-	    }
+	Node temp = head.getNext();
+	int i = 0;
+	while (i < a) {
 	    temp = temp.getNext();
+	    i += 1;
 	}
-	return "out of bounds";
-    }	
+	return temp.getData();
+    }
     public String remove(int a) {
 	String n = "";
-	int i = -1;
-	Node temp = head;
-	while (temp != null) {
+	int i = 0;
+	Node temp1 = head.getNext();
+	Node temp2 = temp1.getNext();
+	while (i < a - 1) {
 	    i+= 1;
-	    if (i == (a-1)) {
-		n = temp.getNext().getData();
-		temp.setNext(temp.getNext().getNext());
-	    }
-	    temp = temp.getNext();
+	    temp1 = temp1.getNext();
+	    temp2 = temp2.getNext();
 	}
+	n = temp2.getData();
+	temp1.setNext(temp2.getNext());
 	return n;
     }
     public void add(int a, String s) {
-	int i = -1;
-	Node temp = head;
+	int i = 0;
+	Node temp1 = head.getNext();
+	Node temp2 = temp1.getNext();
 	Node newnode = new Node(s);
-	while (temp != null) {
-	    i+= 1;
-	    if (i == a-1) {
-		newnode.setNext(temp.getNext());
-		temp.setNext(newnode);
-	    }
-	    temp = temp.getNext();
+	while (i < a - 1) {
+	    temp1 = temp1.getNext();
+	    temp2 = temp2.getNext();
 	}
+	newnode.setNext(temp2);
+	temp1.setNext(newnode);
     }
     public String set(int a, String s) {
-	int i = -1;
+	int i = 0;
 	String n = "";
 	Node newnode = new Node(s);
-	Node temp = head;
-	while (temp != null) {
+	Node temp = head.getNext();
+	while (i < a) {
 	    i+= 1;
-	    if (i == a-1) {
-		n = temp.getNext().getData();
-		newnode.setNext(temp.getNext().getNext());
-		temp.setNext(newnode);
-	    }
 	    temp = temp.getNext();
 	}
+	n = temp.getData();
+	temp.setData(s);
 	return n;
     }
 
     public String toString() {
 	String s = "";
 	//special code : temp = temp.getNext() you'll need to make a temp which will start at head.getNext()
-	Node temp = head;
+	Node temp = head.getNext();
 	while (temp != null) {
 	    s = s + temp + " ";
 	    temp = temp.getNext();
 	}
-	    return s;
+	return s;
     }
     public static void main(String[] args) {
 	MyLinkedList L = new MyLinkedList();
