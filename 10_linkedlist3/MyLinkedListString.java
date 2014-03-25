@@ -1,11 +1,11 @@
 // Worked with Adriel Mendoza Pd 2
 
 public class MyLinkedListString{
-    private Node head;
-    private Node tail;
+    private NodeString head;
+    private NodeString tail;
     private int length;
 
-    public MyLinkedList(){
+    public MyLinkedListString(){
 	head = null;
 	tail = null;
 	length = 0;
@@ -13,14 +13,14 @@ public class MyLinkedListString{
 
     public void add(String d){
 	if(head == null){
-	    head = new Node(d);
+	    head = new NodeString(d);
 	    tail = head;
 	}else{
-	    Node temp = head;
+	    NodeString temp = head;
 	    while(temp.getNext() != null){
 		temp = temp.getNext();
 	    }
-	    temp.setNext(new Node(d));
+	    temp.setNext(new NodeString(d));
 	    tail = temp.getNext();
 	}
 	length++;
@@ -28,7 +28,7 @@ public class MyLinkedListString{
     
     public String toString(){
         String s = "";
-	Node tmp = head;
+	NodeString tmp = head;
 	while (tmp != null) {
 	    s += tmp + ", ";
 	    tmp = tmp.getNext();
@@ -42,20 +42,20 @@ public class MyLinkedListString{
 	if(i >= length() - 1){
 	    throw new IndexOutOfBoundsException();
 	}
-	Node temp = head;
+	NodeString temp = head;
 	if(i == 0){
 	    add(s);
 	}
 	if(i == length - 1){
-	    tail.setNext(new Node(s));
+	    tail.setNext(new NodeString(s));
 	    tail = tail.getNext();
 	}
 	while(i != 1){
 	    temp = temp.getNext();
 	    i -= 1;
 	}
-	Node temp2 = temp.getNext();
-	temp.setNext(new Node(s));
+	NodeString temp2 = temp.getNext();
+	temp.setNext(new NodeString(s));
 	temp.getNext().setNext(temp2);
 	length++;
     }
@@ -65,7 +65,7 @@ public class MyLinkedListString{
 	if(i >= length - 1){
 	    throw new IndexOutOfBoundsException();
 	}
-	Node temp = head;
+	NodeString temp = head;
 	if(i == 0){
 	    return temp.getData();
 	}
@@ -81,9 +81,9 @@ public class MyLinkedListString{
 	if(i >= length()){
 	    throw new IndexOutOfBoundsException();
 	}
-	Node temp = head;
+	NodeString temp = head;
 	if(i == 0){
-	    Node hold = head.getNext();
+	    NodeString hold = head.getNext();
 	    add(s);
 	    head.setNext(hold);
 	}
@@ -92,7 +92,7 @@ public class MyLinkedListString{
 	    i -= 1;
 	}
 	resp += temp.getNext().getData();
-	temp.setNext(new Node(s));
+	temp.setNext(new NodeString(s));
 	temp.getNext().setNext(temp.getNext().getNext());
 	if(i == length - 1){
 	    resp = tail.getData();
@@ -105,8 +105,8 @@ public class MyLinkedListString{
     public String remove(int i){
 	int n = 0;
 	String resp = "";
-	Node temp = head.getNext();
-	Node t2 = head;
+	NodeString temp = head.getNext();
+	NodeString t2 = head;
 	if(i == 0){
 	    resp += head.getData();
 	    head = head.getNext();
@@ -126,7 +126,7 @@ public class MyLinkedListString{
     }
 
     public int find(String s){
-	Node pos = head;
+	NodeString pos = head;
 	for(int i = 0; i < length; length++){
 	    if(pos.getData().equals(s)){
 		return i;
@@ -140,7 +140,7 @@ public class MyLinkedListString{
 	return length;
     }
     public static void main(String[] args){
-	MyLinkedList L = new MyLinkedList();
+	MyLinkedListString L = new MyLinkedListString();
 
 	L.add("Sully");
 	System.out.println(L);

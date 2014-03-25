@@ -1,7 +1,7 @@
 public class MyLLIterator<E> implements Iterator{
     private Node current;
 
-    public MyLLIterator(Node n){
+    public MyLLIterator<E>(Node n){
 	current = n;
     }
 

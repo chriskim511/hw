@@ -3,20 +3,20 @@ public class MyLinkedList<E> implements Iterable<E>{
     private Node tail;
     private int length;
 
-    public MyLinkedList<E>(){
+    public MyLinkedList(){
 	head = null;
 	tail = null;
 	length = 0;
     }
 
-    public MyLLIterator iterator(){
+    public iterator<E>(){
 	return new MyLLIterator<E>(head);
     }
 
     public void add(E d){
 	if(head == null){
-	    head = new Node(d);
-	    tail = head;
+	head = new Node(d);
+	tail = head;
 	}else{
 	    Node temp = head;
 	    while(temp.getNext() != null){
@@ -140,7 +140,7 @@ public class MyLinkedList<E> implements Iterable<E>{
     
     public int length(){
 	return length;
-    }
+    }	
     public static void main(String[] args){
 	MyLinkedList L = new MyLinkedList();
 
