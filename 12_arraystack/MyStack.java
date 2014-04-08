@@ -26,12 +26,13 @@ public class MyStack{
 	    stack[len] = s;
 	}
 	len++;
+	top++;
     }
 
     public String pop() {
 	String answer = stack[len-1];
-	stack[len-1] = "";
 	len--;
+	top--;
 	return answer;
     }
 
