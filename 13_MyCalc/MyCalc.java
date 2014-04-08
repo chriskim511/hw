@@ -35,28 +35,38 @@ public class MyCalc {
 	return top==null;
     }
     public void myCalculator(String s){
+	int i = numElts;
+	double ans = 0; 
 	if (s.equals("+")){
-	    double temp = Double.parseDouble(this.pop());
-	    double ans = temp + Double.parseDouble(this.pop());    
+	    while (i > 0) {
+		ans += Double.parseDouble(this.pop());
+		numElts--;
+		i--;
+	    }
 	    this.push("" + ans);
-	    numElts = numElts - 1;
+	    numElts++;
 	}
 
-	else if(s.equals("-")){
-	    double temp = Double.parseDouble(this.pop());
-	    double ans = temp - Double.parseDouble(this.pop());
+	else if (s.equals("-")){
+	    ans = Double.parseDouble(this.pop());
+	    numElts --;
+	    while (i - 1 > 0) {
+		ans = Double.parseDouble(this.pop()) - ans;
+		numElts--;
+		i--;
+	    }
 	    this.push("" + ans);
-	    numElts = numElts - 1;
+	    numElts++;
 	}
 	else if(s.equals("*")){
 	    double temp = Double.parseDouble(this.pop());
-	    double ans = temp * Double.parseDouble(this.pop());
+	    ans = temp * Double.parseDouble(this.pop());
 	    this.push("" + ans);
 	    numElts = numElts - 1;
 	}
 	else if (s.equals("/")){
 	    double temp = Double.parseDouble(this.pop());
-	    double ans = temp / Double.parseDouble(this.pop());
+	    ans = Double.parseDouble(this.pop()) / temp;
 	    this.push("" + ans);
 	    numElts = numElts -1;
 
@@ -81,12 +91,11 @@ public class MyCalc {
 	m.push("4");
 	m.myCalculator("+");
 	System.out.println(m);
-	m.push("2");
+	/*m.push("2");
 	m.myCalculator("/");
 	System.out.println(m);
-	//m.push("10");
-	//System.out.println(m);
-	//m.myCalculator("-");
-	//System.out.println(m);
+	m.push("10");
+	m.myCalculator("-");
+	System.out.println(m);*/
     }
 }
