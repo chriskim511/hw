@@ -1,6 +1,6 @@
-- HashSet implements set, only non duplicate elements -overrides equals() and hashcode() -stores only objects -uses add() method to add elements ***slower than HashMap
-- HashMap implements  map, -duplicate keys not allowed but allows null values and null keys -not sychronized -uses the put() method to add an element to the map
+- HashSet implements set, only non duplicate elements, it overrides equals() and hashcode() and stores only objects -uses add() method to add elements
+- HashMap implements  map, -duplicate keys not allowed but allows null values and null keys, it uses the put() method to add an element to the map
 - TreeMap implements map, maintains order of objects, unlike HashMap. As usual, it stores a key and a value -duplicates allowed
 - TreeSet implements set, stores only one object, duplicates not allowed and it's sorted
-- TreeMap slower than Hashmap, treeset slower than hashset
+- TreeMap slower than Hashmap, treeset slower than hashset set slower than map
 - Java's builtin heap is HeapPriorityQueue
